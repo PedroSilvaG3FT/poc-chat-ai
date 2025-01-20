@@ -1,12 +1,18 @@
 "use client";
 
+import {
+  Image,
+  LogOut,
+  Rocket,
+  PanelRight,
+  BotMessageSquare,
+  FlaskConical,
+} from "lucide-react";
 import Link from "next/link";
-import { ReactNode, useEffect, useState } from "react";
 import Each from "@/_shared/components/app-each";
 import { cn } from "@/_core/components/lib/utils";
-import { BotMessageSquare, Image } from "lucide-react";
+import { ReactNode, useEffect, useState } from "react";
 import { Button } from "@/_core/components/fragments/button";
-import { AppToggleTheme } from "@/_shared/components/app-toggle-theme";
 import useWindowSize from "@/_shared/hooks/window-size.hook";
 
 interface IProps {
@@ -16,12 +22,6 @@ interface IProps {
 export default function MainSideMenu(props: IProps) {
   const { className } = props;
   const [isOpen, setIsOpen] = useState(true);
-
-  const { isDesktop } = useWindowSize();
-
-  useEffect(() => {
-    setIsOpen(isDesktop);
-  }, [isDesktop]);
 
   const MENU_ITEMS = [
     { id: 1, title: `Chat`, url: `/main/chat`, icon: BotMessageSquare },
@@ -50,9 +50,13 @@ export default function MainSideMenu(props: IProps) {
         className
       )}
     >
-      <figure className="rounded-xl w-full p-4 mb-4 flex justify-between flex-nowrap max-h-[62px] gap-2 items-center border border-foreground/10">
-        {_renderItem(<h5 className="font-semibold text-sm">POC Chat.Ai</h5>)}
-        <AppToggleTheme />
+      <figure className="mobile:hidden rounded-xl w-full p-4 mb-4 flex flex-nowrap max-h-[62px] gap-2 items-center border border-foreground/10">
+        {_renderItem(<FlaskConical className="text-purple-500" />)}
+        {_renderItem(<h5>POC</h5>)}
+        <PanelRight
+          onClick={() => setIsOpen(!isOpen)}
+          className="ml-auto cursor-pointer text-foreground/60"
+        />
       </figure>
 
       <article className="w-full flex gap-2 flex-col">
@@ -77,13 +81,17 @@ export default function MainSideMenu(props: IProps) {
         />
       </article>
 
-      {/* <Button
-        className="mt-auto justify-start"
-        variant="secondary"
+      <Button
+        asChild
+        variant="ghost"
         onClick={() => setIsOpen(!isOpen)}
+        className="mt-auto justify-start text-red-400"
       >
-        <PanelRight className="text-foreground/40" />
-      </Button> */}
+        <Link href="/auth/login">
+          <LogOut />
+          {_renderItem(<span className="ml-4">Sign out</span>)}
+        </Link>
+      </Button>
     </aside>
   );
 }

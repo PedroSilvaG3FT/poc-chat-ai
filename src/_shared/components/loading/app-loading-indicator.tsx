@@ -16,7 +16,7 @@ export default function AppLoadingIndicator(props: IAppLoadingIndicatorProps) {
         height={24}
         alt="Loading..."
         src="/loading.svg"
-        className={cn("w-24", className)}
+        className={cn("w-24 text-foreground", className)}
       />
     </section>
   );

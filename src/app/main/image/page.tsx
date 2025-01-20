@@ -60,7 +60,7 @@ export default function ImagePage() {
   }, []);
 
   return (
-    <section className="">
+    <section className="pb-24">
       <ImageGenerationForm
         isLoading={isLoading}
         onSubmit={handleGenerate}

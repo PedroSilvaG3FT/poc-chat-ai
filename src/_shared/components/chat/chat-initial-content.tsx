@@ -15,8 +15,7 @@ export default function ChatInitialContent(props: IChatInitialContentProps) {
       <Sparkles className="h-12 w-12 mb-4 text-foreground/40" />
 
       <h5 className="text-center mb-6 text-foreground/40">
-        Digite no campo a baixo <br />
-        ou escolha uma das opções para começar
+        Insert yout prompt to start
       </h5>
 
       <section className="grid gap-2">

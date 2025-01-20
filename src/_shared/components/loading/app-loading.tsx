@@ -9,7 +9,7 @@ export default function AppLoading() {
   if (!_loadingStore.show) return <></>;
 
   return (
-    <section className="h-screen w-screen fixed z-[1000] top-0 left-0 flex gap-4 flex-col items-center justify-center backdrop-blur">
+    <section className="text-foreground h-screen w-screen fixed z-[1000] top-0 left-0 flex gap-4 flex-col items-center justify-center backdrop-blur">
       <AppLoadingIndicator />
       {!!_loadingStore.message && <p>{_loadingStore.message}</p>}
     </section>

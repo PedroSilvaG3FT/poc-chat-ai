@@ -1,7 +1,7 @@
 export const CHAT_SUGGESTIONS = [
-  `Resuma o caso em um parágrafo.`,
-  `Qual o argumento da pessoa demandante?`,
-  `Resuma a cronologia dos fatos (data-fatos).`,
-  `Elabore um parágrafo para sustentar que o autor não tem razão.`,
-  `O que especificamente a parte demandante afirma que é abusivo?`,
+  `Explique em termos simples o que é inteligência artificial.`,
+  `Me indique um livro inspirador para leitura.`,
+  `Como posso ser mais produtivo no meu dia a dia?`,
+  `Quais são os melhores destinos de viagem para janeiro?`,
+  `Conte uma curiosidade interessante sobre ciência.`,
 ];

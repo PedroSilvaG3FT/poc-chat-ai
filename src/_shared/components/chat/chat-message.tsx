@@ -51,9 +51,7 @@ export default function ChatMessage(props: IChatMessageProps) {
           <Show.Else>
             <article className="grid gap-2">
               <nav className="flex gap-2 mb-4 items-center">
-                <i className="h-6 w-6 rounded-full bg-primary flex items-center justify-center">
-                  <Sparkles className="h-4 w-4 text-white" />
-                </i>
+                <i className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></i>
                 <h4>GPT</h4>
               </nav>
 
