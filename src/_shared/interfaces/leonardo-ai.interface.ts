@@ -1,7 +1,4 @@
-import {
-  ELeonardoGenerationStyle,
-  ELeonardoPresetStyle,
-} from "../enums/leonardo-styles.enum";
+import { ELeonardoPresetStyle } from "../enums/leonardo-styles.enum";
 
 export interface ILeonardoPresetStyle {
   id: string;
