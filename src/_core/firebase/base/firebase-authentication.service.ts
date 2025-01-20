@@ -12,7 +12,7 @@ import {
 
 import { FirebaseCollectionBase } from "./firebase-collection.base";
 import { TokenUtil } from "@/_shared/utils/token.util";
-import { IUserDB, IUserRegister } from "@/_shared/interface/user.interface";
+import { IUserDB, IUserRegister } from "@/_shared/interfaces/user.interface";
 
 export interface IFirebaseAuthenticationCredentials {
   email: string;

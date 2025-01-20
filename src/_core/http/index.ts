@@ -1,3 +1,4 @@
+import { TokenUtil } from "@/_shared/utils/token.util";
 import axios, { CreateAxiosDefaults } from "axios";
 
 function _buildInstance<Data>(
@@ -17,7 +18,9 @@ export const LOCAL_HTTP_CLIENT = _buildInstance("");
 
 APP_HTTP_CLIENT.interceptors.request.use(
   async (config) => {
-    config.headers["Authorization"] = `Bearer `;
+    const token = TokenUtil.getAccessToken() || "";
+
+    config.headers["Authorization"] = `Bearer ${token}`;
     return config;
   },
   (error) => Promise.reject(error)

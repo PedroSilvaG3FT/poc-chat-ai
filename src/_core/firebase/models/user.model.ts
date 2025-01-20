@@ -1,4 +1,4 @@
-import { IUser, IUserDB } from "@/_shared/interface/user.interface";
+import { IUser, IUserDB } from "@/_shared/interfaces/user.interface";
 import { Timestamp } from "firebase/firestore";
 
 export class UserModel {

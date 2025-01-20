@@ -4,8 +4,9 @@ import { Timestamp } from "firebase/firestore";
 import { authStore } from "@/_store/auth.store";
 import { loadingStore } from "@/_store/loading.store";
 import React, { createContext, useContext } from "react";
+import { AuthService } from "@/app/auth/_services/auth.service";
 import { UserService } from "../firebase/services/user.service";
-import { IUserRegister } from "@/_shared/interface/user.interface";
+import { IUserRegister } from "@/_shared/interfaces/user.interface";
 
 interface IAuthContext {
   signOut: () => void;
@@ -33,16 +34,13 @@ const AuthProvider: React.FC<IAuthProviderProps> = ({ children }) => {
     try {
       _loadingStore.setShow(true);
 
-      const response = await _userService.signIn({
+      const { data: response } = await AuthService.signIn({
         email,
         password,
       });
 
-      const { refreshToken, accessToken, data } = response.user;
-
-      _authStore.setAccessToken(accessToken);
-      _authStore.setRefreshToken(refreshToken);
-      _authStore.setUser(_userService._model.buildItem(data));
+      _authStore.setAccessToken(response.data.token);
+      _authStore.setUserProfile(response.data.user);
 
       _loadingStore.setShow(false);
     } catch (error) {

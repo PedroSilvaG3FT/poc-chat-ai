@@ -2,27 +2,24 @@
 
 import { StoreStateUtil } from "./utils/state.util";
 import { TokenUtil } from "@/_shared/utils/token.util";
-import { IUser } from "@/_shared/interface/user.interface";
+import { IUser, IUserProfile } from "@/_shared/interfaces/user.interface";
 import { buildStoreProvider } from "./factories/provider.factory";
 import { StoreConfig, buildStore } from "./factories/store.factory";
 
 interface IState {
-  user: IUser;
+  userProfile: IUserProfile;
   accessToken: string;
-  refreshToken: string;
 }
 
 interface IActions {
   reset: () => void;
-  setUser: (data: IUser) => void;
+  setUserProfile: (data: IUserProfile) => void;
   setAccessToken: (data: string) => void;
-  setRefreshToken: (data: string) => void;
 }
 
 const initialState: IState = {
   accessToken: "",
-  refreshToken: "",
-  user: {} as IUser,
+  userProfile: {} as IUserProfile,
 };
 
 const config: StoreConfig<IState, IActions> = {
@@ -34,13 +31,10 @@ const config: StoreConfig<IState, IActions> = {
       set(() => ({ accessToken }));
       TokenUtil.setAccessToken(accessToken || "");
     },
-    setRefreshToken: (refreshToken) => {
-      set(() => ({ refreshToken }));
-      TokenUtil.setRefreshToken(refreshToken || "");
-    },
-    setUser: (user) => {
-      set(() => ({ user }));
-      TokenUtil.setUserId(user.id || "");
+
+    setUserProfile: (userProfile) => {
+      set(() => ({ userProfile }));
+      TokenUtil.setUserId(userProfile.id || "");
     },
     reset: () => {
       set(() => initialState);

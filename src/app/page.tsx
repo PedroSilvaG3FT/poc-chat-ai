@@ -7,11 +7,11 @@ export default function Home() {
   const words = ["better", "cute", "beautiful", "modern"];
   return (
     <WavyBackground>
-      <section className="p-16 h-screen flex flex-col items-center justify-end text-white">
+      <section className="p-16 h-screen flex flex-col items-center justify-end">
         <div className="flex flex-col justify-center items-center px-4">
-          <div className="text-4xl mx-auto font-normal text-neutral-400">
+          <div className="text-4xl mx-auto font-normal">
             Build
-            <FlipWords words={words} className="text-white" /> <br />
+            <FlipWords words={words} /> <br />
             projects with Next boilerplate
           </div>
 

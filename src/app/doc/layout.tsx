@@ -9,7 +9,7 @@ import MenuGroup from "./_components/ui/menu-group";
 import { DOC_MENU_GROUPS } from "./_constants/menu.constant";
 import MenuGroupPopover from "./_components/ui/menu-group-popover";
 import { AppToggleTheme } from "@/_shared/components/app-toggle-theme";
-import { IBaseLayoutProps } from "@/_shared/interface/layout.interface";
+import { IBaseLayoutProps } from "@/_shared/interfaces/layout.interface";
 import { Sidebar, SidebarBody } from "@/_core/components/fragments/ui/sidebar";
 
 export default function DocLayout({ children }: IBaseLayoutProps) {

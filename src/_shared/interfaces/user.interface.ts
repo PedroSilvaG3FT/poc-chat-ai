@@ -15,3 +15,12 @@ export interface IUserRegister extends IUserDB {
 export interface IUser extends Omit<IUserDB, "creationDate"> {
   creationDate: Date;
 }
+
+export interface IUserProfile {
+  id: string;
+  name: string;
+  email: string;
+  userId: string;
+  active: boolean;
+  birthDate: string;
+}

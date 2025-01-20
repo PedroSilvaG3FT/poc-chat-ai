@@ -1,2 +1,58 @@
 @import "./toast.scss";
 @import "./typography.scss";
+
+.invisible-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@mixin neon-colors {
+  --neon-color-1: #ff00de;
+  --neon-color-2: #3020ff;
+  --neon-color-3: #00ff00;
+}
+
+.neon-border {
+  @include neon-colors;
+  position: relative;
+  color: #fff;
+  background: #000;
+  padding: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    background: linear-gradient(
+      45deg,
+      var(--neon-color-1),
+      var(--neon-color-2),
+      var(--neon-color-3),
+      var(--neon-color-1)
+    );
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    animation: animate 20s linear infinite;
+  }
+
+  &::after {
+    filter: blur(20px);
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}

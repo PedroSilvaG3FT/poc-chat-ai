@@ -1,7 +1,7 @@
 import * as React from "react";
 import InputMask from "react-input-mask";
-import { cn } from "@/_core/components/lib/utils";
 import { Eye, EyeOff } from "lucide-react";
+import { cn } from "@/_core/components/lib/utils";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -28,7 +28,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const _renderIcon = () => {
       return (
         <figure
-          className="cursor-pointer absolute top-4 right-4 transition-all duration-500 hover:scale-95"
+          className="cursor-pointer absolute top-2.5 right-4 transition-all duration-500 hover:scale-95"
           onClick={() => setIsShowPass(!isShowPass)}
         >
           {isShowPass ? <EyeOff /> : <Eye />}
@@ -39,15 +39,15 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <article className="w-full relative">
         <InputComponent
-          type={isShowPass ? "text" : type}
-          mask={mask || ""}
-          className={cn(
-            "flex h-14 w-full rounded-2xl border border-input dark:bg-muted/40 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
-            className
-          )}
           ref={ref}
+          mask={mask || ""}
           maxLength={maxLength}
           onChange={handleChange}
+          type={isShowPass ? "text" : type}
+          className={cn(
+            "flex h-11 w-full rounded-xl border border-input dark:bg-muted/40 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+            className
+          )}
           {...props}
         />
 
