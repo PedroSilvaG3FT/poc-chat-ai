@@ -3,17 +3,16 @@
 import {
   Image,
   LogOut,
-  Rocket,
   PanelRight,
-  BotMessageSquare,
   FlaskConical,
+  BotMessageSquare,
+  Dumbbell,
 } from "lucide-react";
 import Link from "next/link";
+import { ReactNode, useState } from "react";
 import Each from "@/_shared/components/app-each";
 import { cn } from "@/_core/components/lib/utils";
-import { ReactNode, useEffect, useState } from "react";
 import { Button } from "@/_core/components/fragments/button";
-import useWindowSize from "@/_shared/hooks/window-size.hook";
 
 interface IProps {
   className?: string;
@@ -26,6 +25,7 @@ export default function MainSideMenu(props: IProps) {
   const MENU_ITEMS = [
     { id: 1, title: `Chat`, url: `/main/chat`, icon: BotMessageSquare },
     { id: 2, title: `Image`, url: `/main/image`, icon: Image },
+    { id: 3, title: `Run`, url: `/main/run`, icon: Dumbbell },
   ];
 
   const _renderItem = (node: ReactNode) => {
